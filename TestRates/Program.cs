@@ -23,7 +23,11 @@ namespace TestRating
             var policy = Utilities.Utilities.GetPolicyObject(policyJson);
 
             BasePolicyValidator policyValidator = PolicyValidatorFactory.Create(policy.Type);
+            if (policyValidator == null)
+                throw new Exception("Validator Factory returned null");
             BasePolicyRate policyRate = PolicyRateFactory.Create(policy.Type);
+            if (policyRate == null)
+                throw new Exception("Rate Factory returned null");
 
             var engine = new RatingEngine(policyValidator, policyRate);
             engine.Rate(policy);
