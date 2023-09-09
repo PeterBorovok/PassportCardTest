@@ -15,7 +15,7 @@ namespace RatePolicyComponents.PolicyRate.Tests
         [TestMethod()]
         public void IsValid_HealthValidatorTest()
         {
-            string policyJson = Resources.HealthValidatorTest_Policy1;
+            string policyJson = Resources.TravelPolicy;
             var policyObj = Utilities.Utilities.GetPolicyObject(policyJson);
             var healthValidator = PolicyValidatorFactory.Create(TestRating.PolicyType.Health);
             bool isValid = healthValidator.IsValid(policyObj);  
@@ -26,7 +26,7 @@ namespace RatePolicyComponents.PolicyRate.Tests
         [TestMethod()]
         public void IsValid_LifeValidatorTest()
         {
-            string policyJson = Resources.HealthValidatorTest_Policy1;
+            string policyJson = Resources.TravelPolicy;
             var policyObj = Utilities.Utilities.GetPolicyObject(policyJson);
             var healthValidator = PolicyValidatorFactory.Create(TestRating.PolicyType.Life);
             bool isValid = healthValidator.IsValid(policyObj);
@@ -37,7 +37,7 @@ namespace RatePolicyComponents.PolicyRate.Tests
         [TestMethod()]
         public void IsValid_TravelValidatorTest()
         {
-            string policyJson = Resources.HealthValidatorTest_Policy1;
+            string policyJson = Resources.TravelPolicy;
             var policyObj = Utilities.Utilities.GetPolicyObject(policyJson);
             var healthValidator = PolicyValidatorFactory.Create(TestRating.PolicyType.Travel);
             bool isValid = healthValidator.IsValid(policyObj);

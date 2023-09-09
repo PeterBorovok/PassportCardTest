@@ -10,7 +10,7 @@ namespace RatePolicyComponents.PolicyRate.Tests
         [TestMethod()]
         public void IsPolicyValidTest()
         {
-            string policyJson = Resources.HealthValidatorTest_Policy1;
+            string policyJson = Resources.TravelPolicy;
             var policy = Utilities.Utilities.GetPolicyObject(policyJson);
             var validator = new PolicyValidatorHealth();
             bool isValid = validator.IsValid(policy);
