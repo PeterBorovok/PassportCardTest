@@ -30,8 +30,8 @@ namespace RatePolicyComponents.PolicyRate.Tests
             var policyObj = Utilities.Utilities.GetPolicyObject(policyJson);
             var healthRate = PolicyRateFactory.Create(TestRating.PolicyType.Health);
             decimal? rating = healthRate.Rate(policyObj);
-            // We know that supplied policy is a travel policy, that gives 75 Rating
-            Assert.IsFalse(rating.HasValue);// && rating.Value == 75);
+            // We know that supplied policy is a travel policy, therefore Health rate can not rate it
+            Assert.IsFalse(rating.HasValue);
         }
 
         [TestMethod()]
@@ -41,8 +41,8 @@ namespace RatePolicyComponents.PolicyRate.Tests
             var policyObj = Utilities.Utilities.GetPolicyObject(policyJson);
             var lifeRate = PolicyRateFactory.Create(TestRating.PolicyType.Life);
             decimal? rating = lifeRate.Rate(policyObj);
-            // We know that supplied policy is a travel policy, that gives 75 Rating
-            Assert.IsFalse(rating.HasValue);// && rating.Value == 75);
+            // We know that supplied policy is a travel policy, therefore Life rate can not rate it
+            Assert.IsFalse(rating.HasValue);
         }
     }
 }
