@@ -6,7 +6,7 @@ namespace RatePolicyComponents.PolicyRate
 {
     public class PolicyValidatorTravel : BasePolicyValidator
     {
-        public override bool IsPolicyValid(Policy policy, out string errorMessage)
+        protected override bool IsPolicyValid(Policy policy, out string errorMessage)
         {
             decimal rate;
             if (policy.Days <= 0)

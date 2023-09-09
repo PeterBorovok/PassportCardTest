@@ -6,7 +6,7 @@ namespace RatePolicyComponents.PolicyRate
 {
     public class PolicyValidatorLife : BasePolicyValidator
     {
-        public override bool IsPolicyValid(Policy policy, out string errorMessage)
+        protected override bool IsPolicyValid(Policy policy, out string errorMessage)
         {
             if (policy.DateOfBirth == DateTime.MinValue)
             {
