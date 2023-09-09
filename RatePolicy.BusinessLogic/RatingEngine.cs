@@ -14,14 +14,18 @@ namespace TestRating
     /// </summary>
     public partial class RatingEngine
     {
+
         private readonly IPolicyValidator policyValidator;
         private readonly IPolicyRate policyRate;
+
+        public event EventHandler<EngineStateEventArgs> EngineStateNotified;
 
         public RatingEngine(IPolicyValidator policyValidator, IPolicyRate policyRate)
         {
             this.policyValidator = policyValidator;
             this.policyRate = policyRate;
         }
+
         public decimal Rating { get; set; }
         public void Rate(Policy policy)
         {
@@ -32,7 +36,8 @@ namespace TestRating
             
             Rating = rateVal.HasValue ? rateVal.Value : throw new Exception("Unable to rate policy according to policy data");
 
-            Console.WriteLine("Rating completed.");
+            if(EngineStateNotified != null)
+                EngineStateNotified(this, new EngineStateEventArgs() { NotificationText = "Rating completed." });
         }
     }
 }
