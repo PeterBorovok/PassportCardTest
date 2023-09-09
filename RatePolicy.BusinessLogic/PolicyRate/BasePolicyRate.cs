@@ -14,6 +14,6 @@ namespace RatePolicyComponents.PolicyRate
             return RatePolicy(policy);
         }
 
-        protected abstract decimal RatePolicy(Policy policy);
+        protected abstract decimal? RatePolicy(Policy policy);
     }
 }

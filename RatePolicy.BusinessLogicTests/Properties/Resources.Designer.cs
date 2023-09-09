@@ -67,9 +67,9 @@ namespace RatePolicy.BusinessLogicTests.Properties {
         ///  &quot;Country&quot;: &quot;Italy&quot;
         ///}.
         /// </summary>
-        internal static string HealthValidatorTest_Policy1 {
+        internal static string TravelPolicy {
             get {
-                return ResourceManager.GetString("HealthValidatorTest_Policy1", resourceCulture);
+                return ResourceManager.GetString("TravelPolicy", resourceCulture);
             }
         }
     }
