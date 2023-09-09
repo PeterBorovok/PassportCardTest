@@ -42,7 +42,7 @@ namespace RatePolicyComponents.PolicyRate.Tests
             var healthValidator = PolicyValidatorFactory.Create(TestRating.PolicyType.Travel);
             bool isValid = healthValidator.IsValid(policyObj);
             // We know that supplied policy is a travel policy which is VALID for travel validator
-            Assert.IsFalse(isValid);
+            Assert.IsTrue(isValid);
         }
     }
 }
