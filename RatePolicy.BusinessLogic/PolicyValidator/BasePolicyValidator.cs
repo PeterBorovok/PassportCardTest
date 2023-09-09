@@ -27,6 +27,6 @@ namespace RatePolicyComponents.PolicyRate
 
         }
 
-        public abstract bool IsPolicyValid(Policy policy, out string errorMessage);
+        protected abstract bool IsPolicyValid(Policy policy, out string errorMessage);
     }
 }

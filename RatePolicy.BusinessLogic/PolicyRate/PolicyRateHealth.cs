@@ -4,7 +4,7 @@ namespace RatePolicyComponents.PolicyRate
 {
     public class PolicyRateHealth : BasePolicyRate
     {
-        public override decimal RatePolicy(Policy policy)
+        protected override decimal RatePolicy(Policy policy)
         {
             decimal rate;
 

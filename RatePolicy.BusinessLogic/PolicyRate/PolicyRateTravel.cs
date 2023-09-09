@@ -4,7 +4,7 @@ namespace RatePolicyComponents.PolicyRate
 {
     public class PolicyRateTravel : BasePolicyRate
     {
-        public override decimal RatePolicy(Policy policy)
+        protected override decimal RatePolicy(Policy policy)
         {
             decimal rate;
             rate = policy.Days * 2.5m;
