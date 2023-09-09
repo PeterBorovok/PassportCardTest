@@ -4,7 +4,7 @@ namespace RatePolicyComponents.PolicyRate
 {
     public abstract class BasePolicyRate : IPolicyRate
     {
-        protected event EventHandler<PolicyRateEventArgs> PolicyRateState;
+        public event EventHandler<PolicyRateEventArgs> PolicyRateState;
 
         public decimal? Rate(Policy policy)
         {
