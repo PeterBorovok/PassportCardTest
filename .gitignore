@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+*.suo
+/RatePolicy.BusinessLogic/bin/Debug/net7.0
+/RatePolicy.BusinessLogic/obj
+/.vs/TestingRates/FileContentIndex
+/RatePolicy.BusinessLogicTests/bin
+/RatePolicy.BusinessLogicTests/obj
+/RatePolicy.DataModel/bin/Debug/net7.0
+/RatePolicy.DataModel/obj
+/RatePolicyComponents/obj
+/RatePolicyData/obj
+/TestRates/bin/Debug/net7.0
+/TestRates/obj
+/Utilities/bin/Debug/net7.0
+/Utilities/obj
