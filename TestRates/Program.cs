@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Converters;
 using RatePolicyComponents;
 using RatePolicyComponents.PolicyRate;
+using RatePolicyComponents.PolicyValidator;
 using RatePolicyData;
 using System;
 using System.IO;
@@ -29,7 +30,12 @@ namespace TestRating
             if (policyRate == null)
                 throw new Exception("Rate Factory returned null");
 
-            var engine = new RatingEngine(policyValidator, policyRate);
+            policyRate.PolicyRateState += PolicyRate_PolicyRateState;
+            policyValidator.PolicyValidationState += PolicyValidator_PolicyValidationState;
+
+        var engine = new RatingEngine(policyValidator, policyRate);
+
+            engine.EngineStateNotified += Engine_EngineStateNotified;
             engine.Rate(policy);
 
             decimal rating = engine.Rating;
@@ -41,6 +47,21 @@ namespace TestRating
             {
                 Console.WriteLine("No rating produced.");
             }
+        }
+
+        private static void Engine_EngineStateNotified(object sender, EngineStateEventArgs e)
+        {
+            Console.WriteLine($"Rate Engine notified state: {e.NotificationText}");
+        }
+
+        private static void PolicyValidator_PolicyValidationState(object? sender, PolicyValidationEventArgs e)
+        {
+            Console.WriteLine($"Policy Validator notified state: {e.NotificationText}");
+        }
+
+        private static void PolicyRate_PolicyRateState(object? sender, PolicyRateEventArgs e)
+        {
+            Console.WriteLine($"Policy Rate notified state: {e.NotificationText}");
         }
     }
 }
